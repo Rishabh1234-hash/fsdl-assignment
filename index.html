@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Chaos Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      background: #0f172a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    .output {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .todo {
+      display: flex;
+      justify-content: space-between;
+      background: #020617;
+      padding: 6px;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    .danger {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+
+<h1>⚡ JavaScript Chaos Playground</h1>
+
+<!-- Regex Tester -->
+<div class="box">
+  <h3>🔍 Regex Tester</h3>
+  <input type="text" id="regexInput" placeholder="Enter email to test">
+  <button onclick="testRegex()">Test</button>
+  <div class="output" id="regexOutput"></div>
+</div>
+
+<!-- Color Generator -->
+<div class="box">
+  <h3>🎨 Random Color Generator</h3>
+  <button onclick="changeColor()">Change Background</button>
+  <div class="output" id="colorCode"></div>
+</div>
+
+<!-- Counter -->
+<div class="box">
+  <h3>➕ Counter (Events)</h3>
+  <button onclick="count-- ; updateCounter()">-</button>
+  <span id="counter">0</span>
+  <button onclick="count++ ; updateCounter()">+</button>
+</div>
+
+<!-- Timer -->
+<div class="box">
+  <h3>⏱ Timer</h3>
+  <button onclick="startTimer()">Start</button>
+  <button onclick="stopTimer()">Stop</button>
+  <div class="output" id="timer">0</div>
+</div>
+
+<!-- Todo -->
+<div class="box">
+  <h3>📝 Mini Todo (LocalStorage)</h3>
+  <input type="text" id="todoInput" placeholder="New task">
+  <button onclick="addTodo()">Add</button>
+  <div id="todoList"></div>
+</div>
+
+<!-- Keyboard Interaction -->
+<div class="box">
+  <h3>⌨️ Keyboard Detector</h3>
+  <div class="output" id="keyOutput">Press any key...</div>
+</div>
+
+<script>
+  // REGEX TESTER
+  function testRegex() {
+    const value = document.getElementById("regexInput").value;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    document.getElementById("regexOutput").textContent =
+      regex.test(value) ? "✅ Valid Email" : "❌ Invalid Email";
+  }
+
+  // COLOR GENERATOR
+  function changeColor() {
+    const color = "#" + Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.background = color;
+    document.getElementById("colorCode").textContent = color;
+  }
+
+  // COUNTER
+  let count = 0;
+  function updateCounter() {
+    document.getElementById("counter").textContent = count;
+  }
+
+  // TIMER
+  let seconds = 0;
+  let interval;
+  function startTimer() {
+    if (!interval) {
+      interval = setInterval(() => {
+        seconds++;
+        document.getElementById("timer").textContent = seconds;
+      }, 1000);
+    }
+  }
+  function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+  }
+
+  // TODO + LOCALSTORAGE
+  const todoList = document.getElementById("todoList");
+
+  function addTodo() {
+    const text = document.getElementById("todoInput").value;
+    if (!text) return;
+
+    const div = document.createElement("div");
+    div.className = "todo";
+    div.innerHTML = `
+      <span>${text}</span>
+      <button onclick="this.parentElement.remove()">❌</button>
+    `;
+
+    todoList.appendChild(div);
+    document.getElementById("todoInput").value = "";
+  }
+
+  // KEYBOARD EVENTS
+  document.addEventListener("keydown", (e) => {
+    document.getElementById("keyOutput").textContent =
+      `Key: ${e.key} | Code: ${e.code}`;
+  });
+</script>
+
+</body>
+</html>
