@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+<h2 id="mainHeading">Student Registration Form</h2>
+
+<form id="registrationForm">
+
+    <label>Username:</label>
+    <input type="text" id="username" class="inputField"><br>
+
+    <label>Email:</label>
+    <input type="text" id="email" class="inputField"><br>
+
+    <label>Phone:</label>
+    <input type="text" id="phone" class="inputField"><br>
+
+    <label>Password:</label>
+    <input type="password" id="password" class="inputField"><br>
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" class="inputField"><br>
+
+    <label>Upload Profile Picture:</label>
+    <input type="file" id="profilePic" accept="image/*"><br>
+
+    <button type="button" id="submitBtn">Register</button>
+    <button type="button" id="removeSummaryBtn">Remove Summary</button>
+
+</form>
+
+<img id="previewImage" src="" alt="Profile Preview">
+
+<p id="message"></p>
+
+<div id="summaryBox"></div>
+
+</body>
+</html>
