@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Animated Background */
+.bg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ff6a00, #ee0979, #36d1dc, #5b86e5);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Glass Card */
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.inputBox {
+  position: relative;
+  margin: 20px 0;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.inputBox label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: 0.3s;
+  color: #555;
+}
+
+.inputBox input:focus + label,
+.inputBox input:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.msg {
+  margin-top: 10px;
+  color: white;
+}
