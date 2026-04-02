@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animated Background */
+.container {
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Glass Form */
+form {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  /* 🔥 ADD THIS */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Inputs */
+input {
+  width: 70%;   /* increase width */
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+
+input:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #fff;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  margin: 5px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  transition: 0.3s;
+  margin-top: 10px;
+
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px white;
+}
+
+/* Table Styling */
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+th {
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
+
+td, th {
+  padding: 12px;
+  text-align: center;
+}
+
+/* Hover row effect */
+tr:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #222;
+  font-size: 28px;
+}
+
+/* Message */
+p {
+  text-align: center;
+  font-weight: bold;
+}
